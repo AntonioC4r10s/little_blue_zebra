@@ -27,18 +27,20 @@ def extract(data: list):
 		data_actual = data_city[0]
 		data_forecast = data_city[1]
 		data_past = data_city[2]
-		df_info = pd.concat([df_info, pd.DataFrame({'name': data_actual['name'], 
-											 	'country': data_actual['sys']['country'], 
-												'lat': data_actual['coord']['lat'], 
-												'lon': data_actual['coord']['lon']}, 
-												index=[index_data_actual]).dropna(axis=1, how='all')])
+		df_info = pd.concat([df_info, 
+					        pd.DataFrame({'name': data_actual['name'], 
+									    'country': data_actual['sys']['country'], 
+									    'lat': data_actual['coord']['lat'], 
+									    'lon': data_actual['coord']['lon']}, 
+									    index=[index_data_actual]).dropna(axis=1, how='all')])
 		index_data_actual += 1
-		df_forecast = pd.concat([df_forecast, pd.DataFrame({'name': data_actual['name'],
-													  		'time': data_forecast['hourly']['time'],
-													  		'temperature': data_forecast['hourly']['temperature_2m'],
-										   					'relative_humidity': data_forecast['hourly']['relative_humidity_2m'], 
-									 						'apparent_temperature': data_forecast['hourly']['apparent_temperature'], 
-															'rain': data_forecast['hourly']['rain']}).dropna(axis=1, how='all')])
+		df_forecast = pd.concat([df_forecast, 
+						        pd.DataFrame({'name': data_actual['name'],
+											'time': data_forecast['hourly']['time'],
+											'temperature': data_forecast['hourly']['temperature_2m'],
+										   	'relative_humidity': data_forecast['hourly']['relative_humidity_2m'], 
+									 		'apparent_temperature': data_forecast['hourly']['apparent_temperature'], 
+											'rain': data_forecast['hourly']['rain']}).dropna(axis=1, how='all')])
 		df_forecast['time'] = pd.to_datetime(df_forecast['time'])
 	data_tuples.append((df_info, df_forecast))
 	return data_tuples

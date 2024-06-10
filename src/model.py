@@ -1,8 +1,8 @@
 from weather_api import API_WEATHER_KEY, cities, data_weather_now, coord, data_example, main_data_weather
 import pandas as pd
 import warnings
-from databases import df_info_to_sql, df_forecast_to_sql
-
+from databases import df_info_to_sql, df_forecast_to_sql, read_df_info
+import datetime
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -20,7 +20,7 @@ def extract(data: list):
 
 	data_tuples = []	
 	index_data_actual = 1
-	df_info = pd.DataFrame(columns=['name', 'country', 'lat', 'lon'])
+	df_info = pd.DataFrame(columns=['name', 'country', 'lat', 'lon', 'wind', 'humidity', 'temperature', 'time'])
 	df_forecast = pd.DataFrame(columns=['name', 'time', 'temperature', 'relative_humidity', 
 									 	'apparent_temperature', 'rain'])
 	for data_city in data:
@@ -31,7 +31,11 @@ def extract(data: list):
 					        pd.DataFrame({'name': data_actual['name'], 
 									    'country': data_actual['sys']['country'], 
 									    'lat': data_actual['coord']['lat'], 
-									    'lon': data_actual['coord']['lon']}, 
+									    'lon': data_actual['coord']['lon'],
+										'wind': data_actual['wind']['speed'],
+										'humidity': data_actual['main']['humidity'],
+										'temperature': kelvin_to_celsius(data_actual['main']['temp']),
+                                        'time': unix_to_utc(data_actual['dt'])},
 									    index=[index_data_actual]).dropna(axis=1, how='all')])
 		index_data_actual += 1
 		df_forecast = pd.concat([df_forecast, 
@@ -45,3 +49,22 @@ def extract(data: list):
 	data_tuples.append((df_info, df_forecast))
 	return data_tuples
 
+
+def kelvin_to_celsius(kelvin):
+    celsius = kelvin - 273.15
+    celsius = round(celsius, 2)
+    # print(celsius)
+    return celsius
+
+
+def unix_to_utc(unix):
+    utc = datetime.datetime.utcfromtimestamp(unix)
+    # print(utc)
+    return utc
+
+
+
+# update()
+# kelvin_to_celsius(290.47)
+# read_df_info()
+# unix_to_utc(1717855649)

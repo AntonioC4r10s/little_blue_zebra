@@ -3,7 +3,7 @@ import time
 
 
 # My Api
-API_WEATHER_KEY = 'aec33dc9860ee24df765420ab8a8dca1'
+API_WEATHER_KEY = ''
 
 
 # Important cities in the world 

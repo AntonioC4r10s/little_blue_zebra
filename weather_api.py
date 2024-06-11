@@ -7,7 +7,7 @@ API_WEATHER_KEY = 'aec33dc9860ee24df765420ab8a8dca1'
 
 
 # Important cities in the world 
-cities = ['New York', 'London', 'Tokyo']
+cities = ['New York', 'London', 'Tokyo', 'Barcelona']
 
 
 # Function to return json informations

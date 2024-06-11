@@ -79,4 +79,4 @@ def unix_to_utc(unix):
     utc = datetime.datetime.utcfromtimestamp(unix)  # Converte o timestamp UNIX para UTC
     return utc  # Retorna o tempo em UTC
 
-update()  # Chama a função update para atualizar os dados climáticos
+# update()  # Chama a função update para atualizar os dados climáticos

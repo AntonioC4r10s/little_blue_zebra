@@ -2,7 +2,7 @@ import requests  # Importa o módulo requests para fazer solicitações HTTP
 import time  # Importa o módulo time para lidar com o tempo
 
 # Minha chave de API do OpenWeatherMap
-API_WEATHER_KEY = 'aec33dc9860ee24df765420ab8a8dca1'
+API_WEATHER_KEY = ''
 
 # Lista de cidades importantes no mundo
 cities = ['New York', 'London', 'Tokyo', 'Barcelona', 'Rio de Janeiro']

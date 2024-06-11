@@ -2,7 +2,7 @@
 
 # Weather Data Dashboard
 
-This is a weather data dashboard project that uses Streamlit to create an interactive interface. It extracts current weather and forecast information from an external API, stores the data in a SQLite database, and displays it in a visually appealing manner.
+This is a weather data dashboard project that uses Streamlit to create an interactive interface. It extracts current weather and forecast information from an external API, stores the data in a SQLite database, and displays it in a visually appealing manner. The app.py is hosted [here](https://antonioc4r10s-little-blue-zebra-app-zkxhf2.streamlit.app/).
 
 ## Features
 

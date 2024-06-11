@@ -43,8 +43,3 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 This project is licensed under the [MIT License](https://github.com/your-username/your-repository/blob/main/LICENSE).
 
 ---
-
-Feel free to adjust or expand this README.md as needed to better fit your project!
-
-
-
